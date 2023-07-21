@@ -2,7 +2,7 @@
 
 Loosely based on: [testdriven.io/blog/github-actions-docker](https://testdriven.io/blog/github-actions-docker/)
 
-## Set up
+## Prerequisites
 
 Get the nvidia docker image (is this automated?)
 ```
@@ -10,10 +10,7 @@ nvidia/cuda:11.4.0-devel-ubuntu20.04
 ```
 and make sure `nvidia-smi` is working outside the container.
 
-Create the docker image `runner-image` from the provided `Dockerfile`
-```
-docker build --tag runner-image .
-```
+## Set up
 
 Create two files
 ```
@@ -28,6 +25,15 @@ ACCESS_TOKEN="******"
 <span style="color:red">**Warning**: do NOT commit your access token! </span>
 
 For safety, these files are in `.gitignore`
+
+Create the docker image `runner-image` from the provided `Dockerfile`
+```
+docker build --tag runner-image .
+```
+
+A different docker image needs to be created for each different repository (repeat the previous steps).
+
+Note: since docker images are built on a diff-basis, the memory penalty from multiple images differing only by one or two text files is tiny.
 
 
 ## Usage
