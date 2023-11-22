@@ -4,11 +4,17 @@ Loosely based on: [testdriven.io/blog/github-actions-docker](https://testdriven.
 
 ## Prerequisites
 
-Get the nvidia docker image (is this automated?)
+Get the nvidia docker image
 ```
-nvidia/cuda:11.4.0-devel-ubuntu20.04
+nvidia/cuda:12.2.0-devel-ubuntu22.04
+```
+using
+```
+docker pull nvidia/cuda:12.2.0-devel-ubuntu22.04
 ```
 and make sure `nvidia-smi` is working outside the container.
+
+Install the `nvidia-container-toolkit` from the [nvidia install-guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 ## Set up
 

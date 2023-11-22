@@ -1,8 +1,8 @@
 # base
-FROM nvidia/cuda:11.4.0-devel-ubuntu20.04
+FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
 # set the github runner version
-ARG RUNNER_VERSION="2.303.0"
+ARG RUNNER_VERSION="2.311.0"
 
 # update the base packages and add a non-sudo user
 RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
@@ -10,8 +10,8 @@ RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    curl jq build-essential libssl-dev libffi-dev python python-dev python3.8 python3-venv python3.8-dev python3-pip git \
-    libpython3-dev libboost-all-dev locate emacs
+    curl jq build-essential libssl-dev libffi-dev python-is-python3 python3-dev python3.10 python3-venv python3.10-dev python3-pip git \
+    libpython3-dev libboost-all-dev locate emacs singular
 
 # cd into the user directory, download and unzip the github actions runner
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
