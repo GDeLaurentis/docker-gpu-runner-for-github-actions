@@ -39,8 +39,9 @@ docker build --tag runner-image .
 
 A different docker image needs to be created for each different repository (repeat the previous steps).
 
-Note: since docker images are built on a diff-basis, the memory penalty from multiple images differing only by one or two text files is tiny.
+Note 1: since docker images are built on a diff-basis, the memory penalty from multiple images differing only by one or two text files is tiny.
 
+Note 2: if the github workflow file requires a secret, e.g. "secrets.GitHubActions_PAT", e.g. for accessing other private repositories, make sure this is correctly set and is up to date under repo/settings/secrets and variables/actions. The access token itself is created under (profile)/settings/developer settings/personal access tokens/
 
 ## Usage
 
