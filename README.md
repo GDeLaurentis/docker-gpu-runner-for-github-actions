@@ -66,7 +66,7 @@ docker run -it --entrypoint /bin/bash --gpus all runner-image
 
 To check if docker sees `nvcc` (or `nvidia-smi`)
 ```
-docker run --rm --runtime=nvidia nvidia/cuda:11.4.0-devel-ubuntu20.04 which nvcc
+docker run --rm --runtime=nvidia nvidia/cuda:12.2.0-devel-ubuntu22.04 which nvcc
 ```
 
 Packages can either be installed in the `Dockerfile` or in the github workflow file.
