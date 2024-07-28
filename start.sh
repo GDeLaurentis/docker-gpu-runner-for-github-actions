@@ -16,7 +16,6 @@ source /home/docker/.ACCESS_TOKEN
 # ACCESS_TOKEN="******************"
 
 # REGISTRATION TOKEN
-echo $ACCES
 # Obtain the REG_TOKEN via post request to the github api
 if [[ $ACCESS_TOKEN = *"github_"* ]]
 then
@@ -38,7 +37,7 @@ fi
 # MAIN SCRIPT
 cd /home/docker/actions-runner
 
-./config.sh --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}
+./config.sh --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN} --labels "gpu"
 
 cleanup() {
     echo "Removing runner..."
